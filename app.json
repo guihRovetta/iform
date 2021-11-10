@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "iform",
+    "slug": "iform",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "iform"
+}
