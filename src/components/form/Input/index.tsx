@@ -2,17 +2,15 @@ import React, { useState } from 'react';
 import { TextInputProps } from 'react-native';
 import { useTheme } from 'styled-components';
 
+import ErrorMessage from '../ErrorMessage';
 import {
-  Label,
-  Container,
-  StyledInput,
-  ShowPasswordButton,
-  EyeOnIcon,
-  EyeOffIcon,
-  ErrorMessage,
-  XCircleIcon,
   CheckCircleIcon,
-} from './styles';
+  EyeOffIcon,
+  EyeOnIcon,
+  XCircleIcon,
+} from '../FormFieldStatusIcons/styles';
+import Label from '../Label';
+import { Container, StyledInput, ShowPasswordButton } from './styles';
 
 type Props = TextInputProps & {
   label: string;
