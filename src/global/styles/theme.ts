@@ -10,6 +10,7 @@ export default {
     xsmall: moderateScale(8),
     small: moderateScale(10),
     regular: moderateScale(12),
+    xregular: moderateScale(14),
     large: moderateScale(16),
     xlarge: moderateScale(24),
   },
@@ -20,5 +21,7 @@ export default {
     text400: '#757575',
 
     grey100: '#EDEDED',
+    green500: '#40bc86',
+    red500: '#ec555c',
   },
 };
