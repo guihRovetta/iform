@@ -4,7 +4,11 @@ import DateTimePickerModal, {
 } from 'react-native-modal-datetime-picker';
 
 import ErrorMessage from '../ErrorMessage';
-import { CheckCircleIcon, XCircleIcon } from '../FormFieldStatusIcons/styles';
+import {
+  CalendarIcon,
+  CheckCircleIcon,
+  XCircleIcon,
+} from '../FormFieldStatusIcons/styles';
 import Label from '../Label';
 import { Container, PlaceholderDate, SelectedDate } from './styles';
 
@@ -55,6 +59,7 @@ const DateTimeInput = ({
           <PlaceholderDate>{placeholder}</PlaceholderDate>
         )}
 
+        <CalendarIcon name="calendar" />
         {touched && error && <XCircleIcon name="x-circle" />}
         {touched && !error && <CheckCircleIcon name="check-circle" />}
       </Container>

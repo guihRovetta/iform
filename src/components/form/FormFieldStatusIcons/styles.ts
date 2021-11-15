@@ -29,3 +29,7 @@ export const EyeOnIcon = styled(Feather)`
 export const EyeOffIcon = styled(Feather)`
   ${baseIconStyle}
 `;
+
+export const CalendarIcon = styled(Feather)`
+  ${baseIconStyle}
+`;
