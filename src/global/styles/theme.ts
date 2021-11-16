@@ -13,6 +13,7 @@ export default {
     xregular: moderateScale(14),
     large: moderateScale(16),
     xlarge: moderateScale(24),
+    xxlarge: moderateScale(32),
   },
   colors: {
     background: '#FFFFFF',
