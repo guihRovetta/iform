@@ -11,16 +11,9 @@ type Props = PickerSelectProps & {
   label: string;
   touched?: boolean;
   error?: string;
-  formattedDate?: string;
 };
 
-const Select = ({
-  label,
-  touched = false,
-  error,
-  formattedDate,
-  ...rest
-}: Props) => {
+const Select = ({ label, touched = false, error, ...rest }: Props) => {
   const theme = useTheme();
 
   return (
@@ -47,6 +40,9 @@ const Select = ({
               fontFamily: theme.fonts.regular,
               color: theme.colors.text500,
               paddingRight: 30,
+            },
+            placeholder: {
+              fontFamily: theme.fonts.regular,
             },
           }}
           doneText={rest?.doneText ? rest?.doneText : 'Selecionar'}
