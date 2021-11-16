@@ -11,9 +11,16 @@ type Props = MaskInputProps & {
   label: string;
   touched?: boolean;
   error?: string;
+  disabled?: boolean;
 };
 
-const MaskedInput = ({ label, touched = false, error, ...rest }: Props) => {
+const MaskedInput = ({
+  label,
+  touched = false,
+  error,
+  disabled = false,
+  ...rest
+}: Props) => {
   const theme = useTheme();
 
   return (
@@ -24,8 +31,13 @@ const MaskedInput = ({ label, touched = false, error, ...rest }: Props) => {
         formStatus={
           touched && error ? 'error' : touched && !error ? 'success' : 'normal'
         }
+        disabled={disabled}
       >
-        <StyledInput {...rest} selectionColor={theme.colors.primary} />
+        <StyledInput
+          {...rest}
+          selectionColor={theme.colors.primary}
+          editable={!disabled}
+        />
 
         {touched && error && <XCircleIcon name="x-circle" />}
         {touched && !error && <CheckCircleIcon name="check-circle" />}

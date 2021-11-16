@@ -11,9 +11,16 @@ type Props = PickerSelectProps & {
   label: string;
   touched?: boolean;
   error?: string;
+  disabled?: boolean;
 };
 
-const Select = ({ label, touched = false, error, ...rest }: Props) => {
+const Select = ({
+  label,
+  touched = false,
+  error,
+  disabled,
+  ...rest
+}: Props) => {
   const theme = useTheme();
 
   return (
@@ -24,6 +31,7 @@ const Select = ({ label, touched = false, error, ...rest }: Props) => {
         formStatus={
           touched && error ? 'error' : touched && !error ? 'success' : 'normal'
         }
+        disabled={disabled}
       >
         <RNPickerSelect
           {...rest}
@@ -46,6 +54,7 @@ const Select = ({ label, touched = false, error, ...rest }: Props) => {
             },
           }}
           doneText={rest?.doneText ? rest?.doneText : 'Selecionar'}
+          disabled={disabled}
         />
 
         {touched && error && <XCircleIcon name="x-circle" />}

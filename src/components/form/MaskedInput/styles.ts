@@ -3,12 +3,13 @@ import { moderateScale } from 'react-native-size-matters';
 import styled, { css } from 'styled-components/native';
 
 import {
+  formFieldDisabledModifiers,
   formFieldStatusBorderModifiers,
   FormFieldStylesProps,
 } from '../FormFieldStyles/styles';
 
 export const Container = styled.View<FormFieldStylesProps>`
-  ${({ theme, formStatus }) => css`
+  ${({ theme, formStatus, disabled }) => css`
     background-color: ${theme.colors.grey100};
     border-radius: ${moderateScale(8)}px;
     flex-direction: row;
@@ -17,6 +18,8 @@ export const Container = styled.View<FormFieldStylesProps>`
     padding: ${moderateScale(16)}px;
 
     ${!!formStatus && formFieldStatusBorderModifiers[formStatus](theme)}
+
+    ${!!disabled && formFieldDisabledModifiers.disabled()}
   `}
 `;
 

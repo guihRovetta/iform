@@ -18,6 +18,7 @@ type Props = {
   error?: string;
   onChange: (result: ImageInfo) => void;
   value?: ImageInfo;
+  disabled?: boolean;
 };
 
 const AvatarPicker = ({
@@ -26,6 +27,7 @@ const AvatarPicker = ({
   error,
   onChange,
   value,
+  disabled,
 }: Props) => {
   useEffect(() => {
     (async () => {
@@ -62,6 +64,7 @@ const AvatarPicker = ({
           touched && error ? 'error' : touched && !error ? 'success' : 'normal'
         }
         onPress={handleSelectImage}
+        disabled={disabled}
       >
         {value ? (
           <AvatarImage source={{ uri: value?.uri }} />

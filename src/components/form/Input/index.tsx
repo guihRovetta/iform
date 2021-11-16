@@ -17,6 +17,7 @@ type Props = TextInputProps & {
   isPassword?: boolean;
   touched?: boolean;
   error?: string;
+  disabled?: boolean;
 };
 
 const Input = ({
@@ -24,6 +25,7 @@ const Input = ({
   isPassword = false,
   touched = false,
   error,
+  disabled = false,
   ...rest
 }: Props) => {
   const [showPassword, setShowPassword] = useState(false);
@@ -42,11 +44,13 @@ const Input = ({
         formStatus={
           touched && error ? 'error' : touched && !error ? 'success' : 'normal'
         }
+        disabled={disabled}
       >
         <StyledInput
           {...rest}
           secureTextEntry={showPassword}
           selectionColor={theme.colors.primary}
+          editable={!disabled}
         />
 
         {isPassword && (

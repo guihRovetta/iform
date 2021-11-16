@@ -3,6 +3,7 @@ import { moderateScale } from 'react-native-size-matters';
 import styled, { css } from 'styled-components/native';
 
 import {
+  formFieldDisabledModifiers,
   formFieldStatusBorderModifiers,
   FormFieldStylesProps,
 } from '../FormFieldStyles/styles';
@@ -10,7 +11,7 @@ import {
 const AVATAR_SIZE = 64;
 
 export const Container = styled.TouchableOpacity<FormFieldStylesProps>`
-  ${({ theme, formStatus }) => css`
+  ${({ theme, formStatus, disabled }) => css`
     align-items: center;
     justify-content: center;
     width: ${moderateScale(AVATAR_SIZE)}px;
@@ -18,6 +19,8 @@ export const Container = styled.TouchableOpacity<FormFieldStylesProps>`
     border-radius: ${moderateScale(AVATAR_SIZE / 2)}px;
 
     ${!!formStatus && formFieldStatusBorderModifiers[formStatus](theme)}
+
+    ${!!disabled && formFieldDisabledModifiers.disabled()}
   `}
 `;
 

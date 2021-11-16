@@ -18,6 +18,7 @@ type Props = DateTimePickerProps & {
   error?: string;
   placeholder: string;
   formattedDate?: string;
+  disabled?: boolean;
 };
 
 const DateTimeInput = ({
@@ -26,6 +27,7 @@ const DateTimeInput = ({
   error,
   placeholder,
   formattedDate,
+  disabled = false,
   ...rest
 }: Props) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
@@ -52,6 +54,7 @@ const DateTimeInput = ({
           touched && error ? 'error' : touched && !error ? 'success' : 'normal'
         }
         onPress={showDatePicker}
+        disabled={disabled}
       >
         {formattedDate ? (
           <SelectedDate>{formattedDate}</SelectedDate>
@@ -67,7 +70,7 @@ const DateTimeInput = ({
       {touched && error && <ErrorMessage>{error}</ErrorMessage>}
 
       <DateTimePickerModal
-        isVisible={isDatePickerVisible}
+        isVisible={isDatePickerVisible && !disabled}
         mode={rest?.mode ? rest?.mode : 'date'}
         onConfirm={handleConfirm}
         onCancel={hideDatePicker}
