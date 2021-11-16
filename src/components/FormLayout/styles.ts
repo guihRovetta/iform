@@ -4,4 +4,4 @@ export const Container = styled.KeyboardAvoidingView``;
 
 export const Button = styled.TouchableWithoutFeedback``;
 
-export const ContentWrapper = styled.ScrollView``;
+export const ContentWrapper = styled.View``;

@@ -74,5 +74,5 @@ export const Content = styled.View<HeaderProps>`
 `;
 
 export const ContentWrapper = styled.View`
-  margin-top: ${moderateScale(16)}px;
+  margin-top: ${moderateScale(32)}px;
 `;
