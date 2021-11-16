@@ -4,20 +4,20 @@ import styled, { css } from 'styled-components/native';
 
 import {
   formFieldStatusBorderModifiers,
-  FormFieldStatusBorderProps,
-} from '../FormFieldStatusBorder/styles';
+  FormFieldStylesProps,
+} from '../FormFieldStyles/styles';
 
 const AVATAR_SIZE = 64;
 
-export const Container = styled.TouchableOpacity<FormFieldStatusBorderProps>`
-  ${({ theme, status }) => css`
+export const Container = styled.TouchableOpacity<FormFieldStylesProps>`
+  ${({ theme, formStatus }) => css`
     align-items: center;
     justify-content: center;
     width: ${moderateScale(AVATAR_SIZE)}px;
     height: ${moderateScale(AVATAR_SIZE)}px;
     border-radius: ${moderateScale(AVATAR_SIZE / 2)}px;
 
-    ${!!status && formFieldStatusBorderModifiers[status](theme)}
+    ${!!formStatus && formFieldStatusBorderModifiers[formStatus](theme)}
   `}
 `;
 

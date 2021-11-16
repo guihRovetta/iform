@@ -17,6 +17,6 @@ export const formFieldStatusBorderModifiers = {
   `,
 };
 
-export type FormFieldStatusBorderProps = {
-  status?: 'normal' | 'error' | 'success';
+export type FormFieldStylesProps = {
+  formStatus?: 'normal' | 'error' | 'success';
 };

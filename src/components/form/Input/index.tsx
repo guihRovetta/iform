@@ -39,7 +39,7 @@ const Input = ({
       <Label>{label}</Label>
 
       <Container
-        status={
+        formStatus={
           touched && error ? 'error' : touched && !error ? 'success' : 'normal'
         }
       >

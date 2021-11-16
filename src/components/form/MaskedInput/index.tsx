@@ -21,7 +21,7 @@ const MaskedInput = ({ label, touched = false, error, ...rest }: Props) => {
       <Label>{label}</Label>
 
       <Container
-        status={
+        formStatus={
           touched && error ? 'error' : touched && !error ? 'success' : 'normal'
         }
       >

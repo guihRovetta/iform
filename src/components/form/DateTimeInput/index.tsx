@@ -48,7 +48,7 @@ const DateTimeInput = ({
       <Label>{label}</Label>
 
       <Container
-        status={
+        formStatus={
           touched && error ? 'error' : touched && !error ? 'success' : 'normal'
         }
         onPress={showDatePicker}

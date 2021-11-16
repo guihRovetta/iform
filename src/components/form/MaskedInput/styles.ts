@@ -4,11 +4,11 @@ import styled, { css } from 'styled-components/native';
 
 import {
   formFieldStatusBorderModifiers,
-  FormFieldStatusBorderProps,
-} from '../FormFieldStatusBorder/styles';
+  FormFieldStylesProps,
+} from '../FormFieldStyles/styles';
 
-export const Container = styled.View<FormFieldStatusBorderProps>`
-  ${({ theme, status }) => css`
+export const Container = styled.View<FormFieldStylesProps>`
+  ${({ theme, formStatus }) => css`
     background-color: ${theme.colors.grey100};
     border-radius: ${moderateScale(8)}px;
     flex-direction: row;
@@ -16,7 +16,7 @@ export const Container = styled.View<FormFieldStatusBorderProps>`
     justify-content: space-between;
     padding: ${moderateScale(16)}px;
 
-    ${!!status && formFieldStatusBorderModifiers[status](theme)}
+    ${!!formStatus && formFieldStatusBorderModifiers[formStatus](theme)}
   `}
 `;
 
