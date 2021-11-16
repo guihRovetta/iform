@@ -1,7 +1,8 @@
 import React from 'react';
-import { Text } from 'react-native';
 
 import PageLayout from '../../components/PageLayout';
+import SwitchCaseForm from './SwitchCaseForm';
+import { RegisterFormContextProvider } from './context/RegisterForm';
 
 const Register = () => {
   return (
@@ -9,7 +10,9 @@ const Register = () => {
       title="Registrar"
       subtitle="Bem-vindo, selecione uma das opções abaixo para prosseguir"
     >
-      <Text>aquii</Text>
+      <RegisterFormContextProvider>
+        <SwitchCaseForm />
+      </RegisterFormContextProvider>
     </PageLayout>
   );
 };
