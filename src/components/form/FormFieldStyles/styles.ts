@@ -17,6 +17,13 @@ export const formFieldStatusBorderModifiers = {
   `,
 };
 
+export const formFieldDisabledModifiers = {
+  disabled: () => css`
+    opacity: 0.5;
+  `,
+};
+
 export type FormFieldStylesProps = {
   formStatus?: 'normal' | 'error' | 'success';
+  disabled?: boolean;
 };
