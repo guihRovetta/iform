@@ -39,7 +39,7 @@ export const ButtonWrapper = styled.View<ButtonProps>`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding: ${moderateScale(16)}px;
+    padding: ${theme.spacing.regular}px;
     align-self: ${fullWidth ? 'stretch' : 'baseline'};
 
     ${!!variant && buttonVariantsModifiers[variant](theme)};

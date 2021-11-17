@@ -14,7 +14,7 @@ export const Container = styled.TouchableOpacity<FormFieldStylesProps>`
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: ${moderateScale(16)}px;
+    padding: ${theme.spacing.regular}px;
 
     ${!!formStatus && formFieldStatusBorderModifiers[formStatus](theme)}
 
