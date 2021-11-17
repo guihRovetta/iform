@@ -20,6 +20,8 @@ const Button = ({
   variant = 'filled',
   ...rest
 }: Props) => {
+  if (rest?.disabled) variant = 'disabled';
+
   return (
     <Container activeOpacity={0.5} {...rest}>
       <ButtonWrapper fullWidth={fullWidth} variant={variant}>
