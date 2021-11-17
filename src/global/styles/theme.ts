@@ -30,4 +30,9 @@ export default {
     regular: moderateScale(12),
     large: moderateScale(16),
   },
+  spacing: {
+    small: moderateScale(16),
+    regular: moderateScale(20),
+    large: moderateScale(24),
+  },
 };
