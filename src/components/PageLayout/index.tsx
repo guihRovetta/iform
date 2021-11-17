@@ -1,4 +1,5 @@
 import React from 'react';
+import { ScrollViewProps } from 'react-native';
 
 import {
   Container,
@@ -11,7 +12,7 @@ import {
   ContentWrapper,
 } from './styles';
 
-type Props = {
+type Props = ScrollViewProps & {
   title: string;
   subtitle: string;
   children?: React.ReactNode;
@@ -23,9 +24,10 @@ const PageLayout = ({
   subtitle,
   children,
   direction = 'down-up',
+  ...rest
 }: Props) => {
   return (
-    <Container contentContainerStyle={{ flex: 1 }}>
+    <Container {...rest}>
       <HeaderContainer direction={direction}>
         <TitleWrapper>
           <Title>{title}</Title>
