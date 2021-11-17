@@ -6,7 +6,7 @@ export const StyledErrorMessage = styled.Text`
     margin-top: ${moderateScale(2)}px;
     margin-left: ${moderateScale(4)}px;
     color: ${theme.colors.red500};
-    font-size: ${theme.fontSize.xregular}px;
-    font-family: ${theme.fonts.bold};
+    font-size: ${theme.fontSize.regular}px;
+    font-family: ${theme.fonts.regular};
   `};
 `;
