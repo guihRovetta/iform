@@ -25,4 +25,9 @@ export default {
     green500: '#40bc86',
     red500: '#ec555c',
   },
+  radii: {
+    small: moderateScale(8),
+    regular: moderateScale(12),
+    large: moderateScale(16),
+  },
 };
