@@ -10,7 +10,7 @@ import {
 export const Container = styled.View<FormFieldStylesProps>`
   ${({ theme, formStatus, disabled }) => css`
     background-color: ${theme.colors.grey100};
-    border-radius: ${moderateScale(8)}px;
+    border-radius: ${theme.radii.regular}px;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
