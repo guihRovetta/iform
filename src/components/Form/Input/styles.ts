@@ -1,4 +1,3 @@
-import { moderateScale } from 'react-native-size-matters';
 import styled, { css } from 'styled-components/native';
 
 import {
