@@ -1,4 +1,4 @@
-import { moderateScale } from 'react-native-size-matters';
+import { Feather } from '@expo/vector-icons';
 import styled, { css } from 'styled-components/native';
 
 import {
@@ -20,4 +20,11 @@ export const Container = styled.View<FormFieldStylesProps>`
 
     ${!!disabled && formFieldDisabledModifiers.disabled()}
   `}
+`;
+
+export const ChevronDownIcon = styled(Feather)`
+  ${({ theme }) => css`
+    font-size: 18px;
+    color: ${theme.colors.text400};
+  `};
 `;

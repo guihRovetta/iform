@@ -5,7 +5,7 @@ import { useTheme } from 'styled-components';
 import ErrorMessage from '../ErrorMessage';
 import { CheckCircleIcon, XCircleIcon } from '../FormFieldStatusIcons/styles';
 import Label from '../Label';
-import { Container } from './styles';
+import { Container, ChevronDownIcon } from './styles';
 
 type Props = PickerSelectProps & {
   label: string;
@@ -34,7 +34,6 @@ const Select = ({
         disabled={disabled}
       >
         <RNPickerSelect
-          {...rest}
           style={{
             viewContainer: {
               flex: 1,
@@ -53,8 +52,10 @@ const Select = ({
               fontFamily: theme.fonts.regular,
             },
           }}
-          doneText={rest?.doneText ? rest?.doneText : 'Selecionar'}
+          doneText="Selecionar"
           disabled={disabled}
+          Icon={() => <ChevronDownIcon name="chevron-down" />}
+          {...rest}
         />
 
         {touched && error && <XCircleIcon name="x-circle" />}
