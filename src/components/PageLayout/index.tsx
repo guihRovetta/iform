@@ -27,7 +27,19 @@ const PageLayout = ({
   ...rest
 }: Props) => {
   return (
-    <Container {...rest}>
+    <Container
+      showsVerticalScrollIndicator={
+        rest?.showsVerticalScrollIndicator
+          ? rest?.showsVerticalScrollIndicator
+          : false
+      }
+      contentContainerStyle={
+        rest?.contentContainerStyle
+          ? rest?.contentContainerStyle
+          : { paddingBottom: 32 }
+      }
+      {...rest}
+    >
       <HeaderContainer direction={direction}>
         <TitleWrapper>
           <Title>{title}</Title>
