@@ -19,6 +19,7 @@ type Props = {
   onChange: (result: ImageInfo) => void;
   value?: ImageInfo;
   disabled?: boolean;
+  imagePickerOptions?: ImagePicker.ImagePickerOptions;
 };
 
 const AvatarPicker = ({
@@ -28,6 +29,7 @@ const AvatarPicker = ({
   onChange,
   value,
   disabled,
+  imagePickerOptions,
 }: Props) => {
   useEffect(() => {
     (async () => {
@@ -48,10 +50,13 @@ const AvatarPicker = ({
       allowsEditing: true,
       aspect: [1, 1],
       quality: 1,
+      ...imagePickerOptions,
     });
 
     if (!result.cancelled) {
       onChange(result as ImageInfo);
+    } else {
+      onChange(value ? value : undefined);
     }
   };
 
