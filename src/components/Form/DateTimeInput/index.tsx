@@ -1,6 +1,9 @@
+import { format } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
 import React, { useState } from 'react';
 import DateTimePickerModal, {
   DateTimePickerProps,
+  ReactNativeModalDateTimePickerProps,
 } from 'react-native-modal-datetime-picker';
 
 import ErrorMessage from '../ErrorMessage';
@@ -12,37 +15,44 @@ import {
 import Label from '../Label';
 import { Container, PlaceholderDate, SelectedDate } from './styles';
 
-type Props = DateTimePickerProps & {
-  label: string;
-  touched?: boolean;
-  error?: string;
-  placeholder: string;
-  formattedDate?: string;
-  disabled?: boolean;
-};
+type Props = Omit<DateTimePickerProps, 'onConfirm' | 'onCancel'> &
+  Readonly<
+    Omit<ReactNativeModalDateTimePickerProps, 'onConfirm' | 'onCancel'>
+  > & {
+    label: string;
+    touched?: boolean;
+    error?: string;
+    placeholder: string;
+    dateFormat?: string;
+    disabled?: boolean;
+  };
 
 const DateTimeInput = ({
   label,
   touched = false,
   error,
   placeholder,
-  formattedDate,
+  dateFormat = 'dd/MM/yyyy',
   disabled = false,
   ...rest
 }: Props) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+  const [formattedDate, setFormattedDate] = useState('');
 
   const showDatePicker = () => {
     setDatePickerVisibility(true);
   };
 
-  const hideDatePicker = (date: Date) => {
+  const hideDatePicker = (newDate: Date) => {
     setDatePickerVisibility(false);
-    rest?.onChange(date);
+    rest?.onChange(newDate);
+    if (newDate) {
+      setFormattedDate(format(newDate, dateFormat, { locale: ptBR }));
+    }
   };
 
-  const handleConfirm = (date: Date) => {
-    hideDatePicker(date);
+  const handleConfirm = (newDate: Date) => {
+    hideDatePicker(newDate);
   };
 
   return (
@@ -79,6 +89,7 @@ const DateTimeInput = ({
           rest?.confirmTextIOS ? rest?.confirmTextIOS : 'Confirmar'
         }
         locale="pt-BR"
+        {...rest}
       />
     </>
   );

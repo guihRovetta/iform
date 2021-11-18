@@ -1,4 +1,3 @@
-import { moderateScale } from 'react-native-size-matters';
 import styled, { css } from 'styled-components/native';
 
 import {
@@ -27,6 +26,7 @@ export const PlaceholderDate = styled.Text`
     color: ${theme.colors.text400};
     font-family: ${theme.fonts.regular};
     flex: 1;
+    opacity: 0.4;
   `}
 `;
 
