@@ -1,8 +1,9 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { sub } from 'date-fns';
+import { formatISO, sub } from 'date-fns';
 import { ImageInfo } from 'expo-image-picker/build/ImagePicker.types';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import { Alert } from 'react-native';
 import { Masks } from 'react-native-mask-input';
 
 import Button from '../../../components/Button';
@@ -47,20 +48,54 @@ const MARITAL_STATUS_OPTIONS = [
 ];
 
 const BasicInfoForm = () => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const { step, setStep } = useContext(RegisterFormContext);
 
   const {
     control,
     formState: { errors, touchedFields, isDirty, isValid },
     setValue,
+    handleSubmit,
   } = useForm<FormProps>({
     resolver: yupResolver(schema),
     defaultValues,
     mode: 'onBlur',
   });
 
-  const handleNextStep = () => {
-    setStep(step + 1);
+  const handlePressNextStep = () => {
+    handleSubmit(onSubmit)();
+  };
+
+  const formatDataToApi = (formData: FormProps) => {
+    const { avatar, dateOfBirth } = formData || {};
+    delete formData.avatar;
+    delete formData.dateOfBirth;
+
+    const payload = {
+      avatar: avatar?.base64,
+      dateOfBirth: formatISO(dateOfBirth),
+      ...formData,
+    };
+
+    return payload;
+  };
+
+  const onSubmit = (formData: FormProps) => {
+    const payload = formatDataToApi(formData);
+
+    try {
+      setIsLoading(true);
+
+      setStep(step + 1);
+    } catch {
+      Alert.alert(
+        '😔 Ops...',
+        'Não foi possível salvar seus dados.\nTente novamente!'
+      );
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -190,8 +225,9 @@ const BasicInfoForm = () => {
 
       <Button
         iconName="arrow-right"
-        onPress={handleNextStep}
+        onPress={handlePressNextStep}
         disabled={!isDirty || !isValid}
+        isLoading={isLoading}
       >
         Próximo
       </Button>
