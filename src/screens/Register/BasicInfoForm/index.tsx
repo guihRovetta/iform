@@ -8,13 +8,13 @@ import { Masks } from 'react-native-mask-input';
 import Button from '../../../components/Button';
 import AvatarPicker from '../../../components/Form/AvatarPicker';
 import DateTimeInput from '../../../components/Form/DateTimeInput';
+import FormFieldWrapper from '../../../components/Form/FormFieldWrapper';
 import Input from '../../../components/Form/Input';
 import MaskedInput from '../../../components/Form/MaskedInput';
 import Select from '../../../components/Form/Select';
 import FormLayout from '../../../components/FormLayout';
 import RegisterFormContext from '../context/RegisterForm';
 import { schema } from './schema';
-import { FormFieldWrapper } from './styles';
 
 type FormProps = {
   name: string;
