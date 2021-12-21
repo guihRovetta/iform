@@ -2,6 +2,7 @@ import React from 'react';
 import { ScrollViewProps } from 'react-native';
 
 import {
+  Wrapper,
   Container,
   HeaderContainer,
   TitleWrapper,
@@ -27,32 +28,34 @@ const PageLayout = ({
   ...rest
 }: Props) => {
   return (
-    <Container
-      showsVerticalScrollIndicator={
-        rest?.showsVerticalScrollIndicator
-          ? rest?.showsVerticalScrollIndicator
-          : false
-      }
-      contentContainerStyle={
-        rest?.contentContainerStyle
-          ? rest?.contentContainerStyle
-          : { paddingBottom: 32 }
-      }
-      {...rest}
-    >
-      <HeaderContainer direction={direction}>
-        <TitleWrapper>
-          <Title>{title}</Title>
-          <Subtitle>{subtitle}</Subtitle>
-        </TitleWrapper>
-      </HeaderContainer>
+    <Wrapper>
+      <Container
+        showsVerticalScrollIndicator={
+          rest?.showsVerticalScrollIndicator
+            ? rest?.showsVerticalScrollIndicator
+            : false
+        }
+        contentContainerStyle={
+          rest?.contentContainerStyle
+            ? rest?.contentContainerStyle
+            : { paddingBottom: 32 }
+        }
+        {...rest}
+      >
+        <HeaderContainer direction={direction}>
+          <TitleWrapper>
+            <Title>{title}</Title>
+            <Subtitle>{subtitle}</Subtitle>
+          </TitleWrapper>
+        </HeaderContainer>
 
-      <ContentContainer>
-        <Content direction={direction}>
-          <ContentWrapper>{children}</ContentWrapper>
-        </Content>
-      </ContentContainer>
-    </Container>
+        <ContentContainer>
+          <Content direction={direction}>
+            <ContentWrapper>{children}</ContentWrapper>
+          </Content>
+        </ContentContainer>
+      </Container>
+    </Wrapper>
   );
 };
 

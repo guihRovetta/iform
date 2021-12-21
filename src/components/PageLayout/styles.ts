@@ -1,8 +1,11 @@
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { moderateScale } from 'react-native-size-matters';
 import styled, { css } from 'styled-components/native';
 
 const BORDER_RADIUS_SIZE = 56;
+
+export const Wrapper = styled(KeyboardAwareScrollView)``;
 
 export const Container = styled.ScrollView`
   ${({ theme }) => css`
