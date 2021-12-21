@@ -1,7 +1,7 @@
 import React from 'react';
 
 import PageLayout from '../../components/PageLayout';
-import SwitchCaseForm from './SwitchCaseForm';
+import FormSteps from './FormSteps';
 import { RegisterFormContextProvider } from './context/RegisterForm';
 
 const Register = () => {
@@ -11,7 +11,7 @@ const Register = () => {
       subtitle="Bem-vindo, selecione uma das opções abaixo para prosseguir"
     >
       <RegisterFormContextProvider>
-        <SwitchCaseForm />
+        <FormSteps />
       </RegisterFormContextProvider>
     </PageLayout>
   );
