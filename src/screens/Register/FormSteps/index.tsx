@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 
+import AccountForm from '../AccountForm';
 import AddressForm from '../AddressForm';
 import BasicInfoForm from '../BasicInfoForm';
 import RegisterFormContext from '../context/RegisterForm';
@@ -19,7 +20,7 @@ const FormSteps = () => {
     },
     2: {
       title: 'Conta',
-      component: null,
+      component: <AccountForm />,
     },
     3: {
       title: 'Confirmação',
