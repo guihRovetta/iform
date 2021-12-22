@@ -28,7 +28,7 @@ const Input = ({
   disabled = false,
   ...rest
 }: Props) => {
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState(isPassword);
 
   const theme = useTheme();
 
@@ -56,9 +56,9 @@ const Input = ({
         {isPassword && (
           <ShowPasswordButton onPress={handleShowPassword}>
             {showPassword ? (
-              <EyeOffIcon name="eye-off" />
-            ) : (
               <EyeOnIcon name="eye" />
+            ) : (
+              <EyeOffIcon name="eye-off" />
             )}
           </ShowPasswordButton>
         )}
