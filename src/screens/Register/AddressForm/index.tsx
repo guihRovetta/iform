@@ -27,7 +27,7 @@ type FormProps = {
   }[];
 };
 
-const defaultValues = {
+const defaultValues: FormProps = {
   address: [
     {
       zipcode: undefined,
@@ -39,6 +39,11 @@ const defaultValues = {
       state: undefined,
     },
   ],
+};
+
+const ADDRESS_TITLES = {
+  0: 'Principal',
+  1: 'Secundário',
 };
 
 const AdressForm = () => {
@@ -110,7 +115,7 @@ const AdressForm = () => {
     <FormLayout>
       {fields?.map((field, index) => (
         <React.Fragment key={field?.id}>
-          <Title>{`${index + 1}. Endereço`}</Title>
+          <Title>{`Endereço ${ADDRESS_TITLES[index]}`}</Title>
 
           <Controller
             control={control}
@@ -253,13 +258,13 @@ const AdressForm = () => {
             <Button
               iconName="trash-2"
               variant="outlined"
-              disabled={arrayWatchedField?.length < 2}
+              disabled={index === 0}
               onPress={() => handleRemoveItemFromAdressArray(index)}
             />
 
             <Button
               iconName="plus"
-              disabled={arrayWatchedField?.length > 2}
+              disabled={arrayWatchedField?.length >= 2}
               onPress={handleAddItemToAddressArray}
             />
           </ActionWrapper>
