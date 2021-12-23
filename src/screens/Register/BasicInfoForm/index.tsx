@@ -83,6 +83,7 @@ const BasicInfoForm = () => {
 
   const onSubmit = (formData: FormProps) => {
     const payload = formatDataToApi(formData);
+    console.log(payload);
 
     try {
       setIsLoading(true);
