@@ -31,6 +31,7 @@ export default {
     large: moderateScale(16),
   },
   spacing: {
+    xsmall: moderateScale(8),
     small: moderateScale(16),
     regular: moderateScale(20),
     large: moderateScale(24),
