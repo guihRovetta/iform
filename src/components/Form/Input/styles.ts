@@ -14,7 +14,6 @@ export const Container = styled.View<FormFieldStylesProps>`
     align-items: center;
     justify-content: space-between;
     padding: ${theme.spacing.regular}px;
-    flex: 1;
 
     ${!!formStatus && formFieldStatusBorderModifiers[formStatus](theme)}
 
