@@ -267,12 +267,14 @@ const AdressForm = () => {
               variant="outlined"
               disabled={index === 0}
               onPress={() => handleRemoveItemFromAdressArray(index)}
+              fullWidth={false}
             />
 
             <Button
               iconName="plus"
               disabled={arrayWatchedField?.length >= 2}
               onPress={handleAddItemToAddressArray}
+              fullWidth={false}
             />
           </ActionWrapper>
         </Wrapper>
