@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import AccountForm from '../AccountForm';
 import AddressForm from '../AddressForm';
 import BasicInfoForm from '../BasicInfoForm';
+import CodeConfirmationForm from '../CodeConfirmationForm';
 import RegisterFormContext from '../context/RegisterForm';
 import { Container, StepNumber, StepDescription } from './styles';
 
@@ -24,7 +25,7 @@ const FormSteps = () => {
     },
     3: {
       title: 'Confirmação',
-      component: null,
+      component: <CodeConfirmationForm />,
     },
   };
 
