@@ -1,7 +1,7 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { Controller, useFieldArray, useForm } from 'react-hook-form';
-import { ActivityIndicator, Alert } from 'react-native';
+import { ActivityIndicator, Alert, TextInput } from 'react-native';
 import { Masks } from 'react-native-mask-input';
 import { useTheme } from 'styled-components/native';
 
@@ -48,6 +48,7 @@ const ADDRESS_TITLES = {
 
 const AdressForm = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const numberInputRef = useRef<TextInput>();
 
   const { step, setStep } = useContext(RegisterFormContext);
 
@@ -93,10 +94,11 @@ const AdressForm = () => {
     try {
       setIsLoading(true);
       const address = await getAddress(zipcode);
-      setValue(`address.${index}`, address);
+      setValue(`address.${index}`, address, { shouldTouch: true });
       if (!address?.city || !address?.state) {
         setZipcodeFormFieldError(index);
       }
+      focusNumberFormField();
     } catch (error) {
       Alert.alert('😔 Ops...', error?.message);
     } finally {
@@ -109,6 +111,10 @@ const AdressForm = () => {
       type: 'invalid',
       message: 'Informe um CEP válido',
     });
+  };
+
+  const focusNumberFormField = () => {
+    numberInputRef?.current?.focus();
   };
 
   return (
@@ -175,6 +181,7 @@ const AdressForm = () => {
                         error={errors?.address?.[index]?.number?.message}
                         touched={touchedFields?.address?.[index]?.number}
                         keyboardType="number-pad"
+                        ref={numberInputRef}
                       />
                     </FormFieldWrapper>
                   )}
