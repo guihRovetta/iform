@@ -48,12 +48,12 @@ const CodeConfirmationForm = () => {
       <CodeInputGroup length={4} onChangeValue={onChangeCodeInputGroupValue} />
 
       <Button
-        iconName="arrow-right"
+        iconName="save"
         onPress={onSubmit}
         disabled={!isValid}
         isLoading={isLoading}
       >
-        Próximo
+        Finalizar
       </Button>
     </FormLayout>
   );
