@@ -1,6 +1,8 @@
 import { moderateScale } from 'react-native-size-matters';
 import styled, { css } from 'styled-components/native';
 
+export const Wrapper = styled.View``;
+
 export const ActionWrapper = styled.View`
   ${({ theme }) => css`
     flex-direction: row;

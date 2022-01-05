@@ -13,7 +13,7 @@ import FormLayout from '../../../components/FormLayout';
 import { getAddress } from '../../../services/api/address';
 import RegisterFormContext from '../context/RegisterForm';
 import { schema } from './schema';
-import { ActionWrapper, Title } from './styles';
+import { Wrapper, ActionWrapper, Title } from './styles';
 
 type FormProps = {
   address: {
@@ -114,7 +114,7 @@ const AdressForm = () => {
   return (
     <FormLayout>
       {fields?.map((field, index) => (
-        <React.Fragment key={field?.id}>
+        <Wrapper key={field?.id}>
           <Title>{`Endereço ${ADDRESS_TITLES[index]}`}</Title>
 
           <Controller
@@ -268,7 +268,7 @@ const AdressForm = () => {
               onPress={handleAddItemToAddressArray}
             />
           </ActionWrapper>
-        </React.Fragment>
+        </Wrapper>
       ))}
 
       <Button
