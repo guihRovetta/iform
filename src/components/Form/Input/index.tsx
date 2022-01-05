@@ -13,16 +13,14 @@ import Label from '../Label';
 import { Container, StyledInput, ShowPasswordButton } from './styles';
 
 type Props = TextInputProps & {
-  label: string;
+  label?: string;
   isPassword?: boolean;
   touched?: boolean;
   error?: string;
   disabled?: boolean;
 };
 
-export type InputRefType = TextInput;
-
-const Input = React.forwardRef<InputRefType, Props>((props, ref) => {
+const Input = React.forwardRef<TextInput, Props>((props, ref) => {
   const {
     label,
     isPassword = false,
@@ -42,7 +40,7 @@ const Input = React.forwardRef<InputRefType, Props>((props, ref) => {
 
   return (
     <>
-      <Label>{label}</Label>
+      {!!label && <Label>{label}</Label>}
 
       <Container
         formStatus={
