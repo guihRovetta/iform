@@ -10,6 +10,7 @@ export const Wrapper = styled(KeyboardAwareScrollView)``;
 export const Container = styled.ScrollView`
   ${({ theme }) => css`
     background-color: ${theme.colors.background};
+    flex: 1;
   `}
 `;
 
@@ -78,4 +79,5 @@ export const Content = styled.View<HeaderProps>`
 
 export const ContentWrapper = styled.View`
   margin-top: ${moderateScale(32)}px;
+  flex: 1;
 `;

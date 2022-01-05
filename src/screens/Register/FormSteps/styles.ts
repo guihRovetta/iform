@@ -1,7 +1,9 @@
 import { moderateScale } from 'react-native-size-matters';
 import styled, { css } from 'styled-components/native';
 
-export const Container = styled.View``;
+export const Container = styled.View`
+  flex: 1;
+`;
 
 export const StepNumber = styled.Text`
   ${({ theme }) => css`

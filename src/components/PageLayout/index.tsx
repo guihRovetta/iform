@@ -37,11 +37,12 @@ const PageLayout = ({
             ? rest?.showsVerticalScrollIndicator
             : false
         }
-        contentContainerStyle={
+        contentContainerStyle={[
           rest?.contentContainerStyle
             ? rest?.contentContainerStyle
-            : { paddingBottom: 32 }
-        }
+            : { paddingBottom: 32 },
+          { flex: 1 },
+        ]}
         {...rest}
       >
         <HeaderContainer direction={direction}>
