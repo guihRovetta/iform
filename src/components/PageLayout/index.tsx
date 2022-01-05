@@ -28,7 +28,9 @@ const PageLayout = ({
   ...rest
 }: Props) => {
   return (
-    <Wrapper>
+    <Wrapper
+      contentContainerStyle={{ flexGrow: 1, justifyContent: 'space-between' }}
+    >
       <Container
         showsVerticalScrollIndicator={
           rest?.showsVerticalScrollIndicator
