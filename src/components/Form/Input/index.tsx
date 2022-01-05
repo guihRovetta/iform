@@ -51,6 +51,7 @@ const Input = ({
           secureTextEntry={showPassword}
           selectionColor={theme.colors.primary}
           editable={!disabled}
+          returnKeyType={rest?.returnKeyType || 'next'}
         />
 
         {isPassword && (
