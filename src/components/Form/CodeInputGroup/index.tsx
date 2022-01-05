@@ -3,6 +3,7 @@ import { TextInput } from 'react-native';
 
 import FormFieldWrapper from '../FormFieldWrapper';
 import Input from '../Input';
+import Label from '../Label';
 import { Container, InputWrapper } from './styles';
 
 type Props = {
@@ -35,6 +36,7 @@ const CodeInputGroup = ({ length, onChangeValue }: Props) => {
 
   return (
     <FormFieldWrapper>
+      <Label>{`Informe o código de ${length} digitos que você recebeu`}</Label>
       <Container>
         {generatedArray?.map((_, index) => (
           <InputWrapper key={`code-input-${index}`}>

@@ -1,10 +1,13 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 
 export const Container = styled.View`
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  ${({ theme }) => css`
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: ${theme.spacing.small}px;
+  `};
 `;
 
 export const InputWrapper = styled.View`
