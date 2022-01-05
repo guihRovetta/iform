@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextInputProps } from 'react-native';
+import { TextInput, TextInputProps } from 'react-native';
 import { useTheme } from 'styled-components';
 
 import ErrorMessage from '../ErrorMessage';
@@ -20,14 +20,18 @@ type Props = TextInputProps & {
   disabled?: boolean;
 };
 
-const Input = ({
-  label,
-  isPassword = false,
-  touched = false,
-  error,
-  disabled = false,
-  ...rest
-}: Props) => {
+export type InputRefType = TextInput;
+
+const Input = React.forwardRef<InputRefType, Props>((props, ref) => {
+  const {
+    label,
+    isPassword = false,
+    touched = false,
+    error,
+    disabled = false,
+    ...rest
+  } = props;
+
   const [showPassword, setShowPassword] = useState(isPassword);
 
   const theme = useTheme();
@@ -52,6 +56,7 @@ const Input = ({
           selectionColor={theme.colors.primary}
           editable={!disabled}
           returnKeyType={rest?.returnKeyType || 'next'}
+          ref={ref}
         />
 
         {isPassword && (
@@ -71,6 +76,6 @@ const Input = ({
       {touched && error && <ErrorMessage>{error}</ErrorMessage>}
     </>
   );
-};
+});
 
 export default Input;
