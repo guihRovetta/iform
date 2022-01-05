@@ -8,7 +8,7 @@ const Register = () => {
   return (
     <PageLayout
       title="Registrar"
-      subtitle="Bem-vindo, selecione uma das opções abaixo para prosseguir"
+      subtitle="Bem-vindo, preencha os passos do formulário a seguir para se cadastrar na nossa plataforma"
     >
       <RegisterFormContextProvider>
         <FormSteps />
