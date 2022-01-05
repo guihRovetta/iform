@@ -73,6 +73,7 @@ const AccountForm = () => {
                 value={values?.email}
                 error={errors?.email}
                 touched={touched?.email}
+                keyboardType="email-address"
               />
             </FormFieldWrapper>
 
