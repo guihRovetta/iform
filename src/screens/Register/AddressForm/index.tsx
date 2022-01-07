@@ -59,7 +59,6 @@ const AdressForm = () => {
     formState: { errors, touchedFields, isDirty, isValid },
     watch,
     setValue,
-    setError,
   } = useForm<FormProps>({
     resolver: yupResolver(schema),
     defaultValues,
@@ -107,9 +106,9 @@ const AdressForm = () => {
   };
 
   const setZipcodeFormFieldError = (index: number) => {
-    setError(`address.${index}.zipcode`, {
-      type: 'invalid',
-      message: 'Informe um CEP válido',
+    setValue(`address.${index}.zipcode`, null, {
+      shouldTouch: true,
+      shouldValidate: true,
     });
   };
 
